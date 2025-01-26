@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍿</text></svg>">
+    <style>
+        .backdrop-blur {
+            background-image: url('https://image.tmdb.org/t/p/w1280{{ movie.backdrop_path }}');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            opacity: 0.3;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+    <div class="backdrop-blur"></div>
+    
+    <div class="container mx-auto py-8 relative z-10">
+        <div class="bg-gray-800 bg-opacity-80 rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-6 md:mb-0 md:mr-8">
+                <img 
+                    src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" 
+                    alt="{{ movie.title }}" 
+                    class="rounded-xl shadow-lg w-full object-cover"
+                >
+            </div>
+            
+            <div class="md:w-2/3">
+                <h1 class="text-4xl font-bold mb-4 text-blue-300">{{ movie.title }}</h1>
+                
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <p class="text-gray-400 font-semibold">Release Date</p>
+                        <p class="text-white">{{ movie.release_date }}</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 font-semibold">Rating</p>
+                        <p class="text-white flex items-center">
+                            {{ movie.vote_average }}/10 
+                            <i class="fas fa-star text-yellow-400 ml-2"></i>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-gray-400 font-semibold mb-2">Overview</p>
+                    <p class="text-gray-200 leading-relaxed">{{ movie.overview }}</p>
+                </div>
+                
+                {% if movie.genres %}
+                <div>
+                    <p class="text-gray-400 font-semibold mb-2">Genres</p>
+                    <div class="flex flex-wrap gap-2">
+                        {% for genre in movie.genres %}
+                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
+                                {{ genre.name }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
