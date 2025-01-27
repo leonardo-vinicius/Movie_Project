@@ -121,6 +121,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "MovieProject/static")]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-NPM_BIN_PATH = "npm.cmd"
+#NPM_BIN_PATH = "npm.cmd"
 
 STATICSTORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
