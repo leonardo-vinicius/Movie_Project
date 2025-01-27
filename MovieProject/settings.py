@@ -16,6 +16,10 @@ TMDB_API_KEY = config("TMDB_API_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", cast=bool, default=False)
 
+if not DEBUG:
+    TAILWIND_APP_NAME = None 
+    NPM_BIN_PATH = "npm.cmd"
+
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
 # Application definition
