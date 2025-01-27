@@ -1,1 +1,1 @@
-web: gunicorn --bind [::]:${65524-3000} MovieProject.wsgi
+web: gunicorn --bind [::]:${PORT-3000} MovieProject.wsgi
