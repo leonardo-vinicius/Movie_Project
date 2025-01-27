@@ -18,7 +18,7 @@ DEBUG = config("DEBUG", cast=bool, default=False)
 
 if not DEBUG:
     TAILWIND_APP_NAME = None 
-    NPM_BIN_PATH = "/usr/local/bin/npm"
+    NPM_BIN_PATH = None
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
