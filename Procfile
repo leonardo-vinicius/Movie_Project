@@ -1,1 +1,1 @@
-web: gunicorn MovieProject:app
+web: gunicorn --pythonpath . MovieProject.wsgi
