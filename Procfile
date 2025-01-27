@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT MovieProject.wsgi:application
+web: python manage.py collectstatic --noinput && gunicorn MovieProject.wsgi:application --bind 0.0.0.0:$PORT
