@@ -113,7 +113,7 @@
             <div class="flex justify-between items-center mt-8">
                 <div class="flex-1">
                     {% if page > 1 %}
-                        <a href="?page={{ page|add:-1 }}&search={{ search_query }}" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">
+                    <a href="?page={{ page|add:-1 }}&search={{ search_query }}&sort_by={{ sort_by }}&order={{ order }}" class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">
                             Previous
                         </a>
                     {% endif %}
@@ -121,7 +121,7 @@
         
                 <div class="flex justify-end">
                     {% if has_next_page %}
-                        <a href="?page={{ page|add:1 }}&search={{ search_query }}" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                    <a href="?page={{ page|add:1 }}&search={{ search_query }}&sort_by={{ sort_by }}&order={{ order }}" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
                             Next
                         </a>
                     {% endif %}
