@@ -1,0 +1,1 @@
+web: gunicorn MoviePproject.wsgi --log-file -
